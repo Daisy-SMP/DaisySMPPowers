@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "${modId}",
+	"version": "${version}+${minecraftVersion}",
+	"name": "${modName}",
+	"description": "${description}",
+	"authors": [
+		"macuguita"
+	],
+	"contact": {
+		"homepage": "https://macuguita.com/",
+		"sources": "https://github.com/Daisy-SMP/DaisySMPPowers"
+	},
+	"license": "${license}",
+	"icon": "assets/${modId}/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.macuguita.daisysmppowers.DaisySMPPowers"
+		]
+	},
+	"mixins": [
+		"${modId}.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=${loaderVersion}",
+		"minecraft": "${minecraftVersionRange}",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
