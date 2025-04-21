@@ -7,5 +7,14 @@
   "power.daisy_powers.longer_potions.description": "As a last step in potion brewing, you can double a potion's duration with water from a cauldron.",
 
   "power.daisy_powers.better_fishing_rod.name": "Better fishing rod",
-  "power.daisy_powers.better_fishing_rod.description": "When using a fishing rod you roll the loot table twice and hooking entities with the fishing rod is 3 times more powerful."
+  "power.daisy_powers.better_fishing_rod.description": "When using a fishing rod you roll the loot table twice and hooking entities with the fishing rod is 3 times more powerful.",
+
+  "power.daisy_powers.friend_with_the_bees.name": "Friend with the bees",
+  "power.daisy_powers.friend_with_the_bees.description": "When you collect honey, the bees won't try to attack you.",
+
+  "power.daisy_powers.careful_gatherer.name": "Careful Gatherer",
+  "power.daisy_powers.careful_gatherer.description": "Sweet Berry Bushes don't hurt you at all.",
+
+  "power.daisy_powers.item_collector.name": "Item Collector",
+  "power.daisy_powers.item_collector.description": "You have a larger item pickup radius."
 }

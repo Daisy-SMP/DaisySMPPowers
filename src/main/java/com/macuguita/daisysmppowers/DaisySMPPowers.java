@@ -22,6 +22,7 @@
 
 package com.macuguita.daisysmppowers;
 
+import com.macuguita.daisysmppowers.conditions.DaisyEntityConditionFactories;
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.PowerTypeReference;
@@ -38,10 +39,13 @@ public class DaisySMPPowers implements ModInitializer {
 	public static final PowerType<Power> MORE_CROP_DROPS = new PowerTypeReference<>(id("more_crop_drops"));
 	public static final PowerType<Power> LONGER_POTIONS = new PowerTypeReference<>(id("longer_potions"));
 	public static final PowerType<Power> BETTER_FISHING_ROD = new PowerTypeReference<>(id("better_fishing_rod"));
+	public static final PowerType<Power> FRIEND_WITH_THE_BEES = new PowerTypeReference<>(id("friend_with_the_bees"));
+	public static final PowerType<Power> ITEM_COLLECTOR = new PowerTypeReference<>(id("item_collector"));
+	public static final PowerType<Power> CAREFUL_GATHERER = new PowerTypeReference<>(id("careful_gatherer"));
 
 	@Override
 	public void onInitialize() {
-
+		DaisyEntityConditionFactories.init();
 	}
 
 	public static Identifier id(String name) {
