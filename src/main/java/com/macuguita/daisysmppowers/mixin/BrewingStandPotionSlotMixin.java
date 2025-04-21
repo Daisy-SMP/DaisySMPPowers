@@ -20,32 +20,25 @@
  * SOFTWARE.
  */
 
-package com.macuguita.daisysmppowers;
+package com.macuguita.daisysmppowers.mixin;
 
-import io.github.apace100.apoli.power.Power;
-import io.github.apace100.apoli.power.PowerType;
-import io.github.apace100.apoli.power.PowerTypeReference;
-import net.fabricmc.api.ModInitializer;
-import net.minecraft.util.Identifier;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.minecraft.item.ItemStack;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-public class DaisySMPPowers implements ModInitializer {
+@Mixin(targets = "net/minecraft/screen/BrewingStandScreenHandler$PotionSlot")
+public class BrewingStandPotionSlotMixin {
 
-	public static final String MOD_ID = "daisy_powers";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-
-	public static final PowerType<Power> MORE_CROP_DROPS = new PowerTypeReference<>(id("more_crop_drops"));
-	public static final PowerType<Power> LONGER_POTIONS = new PowerTypeReference<>(id("longer_potions"));
-	public static final PowerType<Power> BETTER_FISHING_ROD = new PowerTypeReference<>(id("better_fishing_rod"));
-
-	@Override
-	public void onInitialize() {
-
-	}
-
-	public static Identifier id(String name) {
-		return new Identifier(MOD_ID, name);
-	}
-
+    @Inject(
+            method = "matches",
+            at = @At("HEAD"),
+            cancellable = true
+    )
+    private static void daisypowers$preventBrewingExtendedPotions(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
+        if(stack.getOrCreateNbt().getBoolean("IsExtendedByCleric")) {
+            cir.setReturnValue(false);
+        }
+    }
 }

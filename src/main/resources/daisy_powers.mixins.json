@@ -3,6 +3,12 @@
 	"package": "com.macuguita.daisysmppowers.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
+		"AbstractCauldronBlockMixin",
+		"BlockMixin",
+		"BrewingStandPotionSlotMixin",
+		"FishingBobberEntityMixin",
+		"ItemStackMixin",
+		"PotionItemMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

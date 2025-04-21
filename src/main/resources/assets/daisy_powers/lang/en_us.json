@@ -1,0 +1,11 @@
+{
+  "power.daisy_powers.more_crop_drops.name": "Bountiful Harvest",
+  "power.daisy_powers.more_crop_drops.description": "When harvesting crops, there is a chance that you receive twice the yield.",
+
+  "daisy_powers.longer_potions": "Extended",
+  "power.daisy_powers.longer_potions.name": "Extended Potions",
+  "power.daisy_powers.longer_potions.description": "As a last step in potion brewing, you can double a potion's duration with water from a cauldron.",
+
+  "power.daisy_powers.better_fishing_rod.name": "Better fishing rod",
+  "power.daisy_powers.better_fishing_rod.description": "When using a fishing rod you roll the loot table twice and hooking entities with the fishing rod is 3 times more powerful."
+}
