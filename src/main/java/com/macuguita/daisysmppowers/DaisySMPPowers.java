@@ -31,7 +31,6 @@ import com.macuguita.lib.platform.registry.GuitaRegistryEntry;
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.PowerTypeReference;
-import io.github.apace100.origins.Origins;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
