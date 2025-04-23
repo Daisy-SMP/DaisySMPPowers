@@ -1,4 +1,12 @@
 {
+  "commands.daisy_powers.trialorigin.succes": "You have successfully changed your origin",
+  "commands.daisy_powers.trialorigin.expired": "§cYou have already used your origin change trial or it has expired",
+
+  "message.daisy_powers.trial_end": "§aYour 30 minute free origin trial has ended",
+  "message.daisy_powers.trial_begin": "Your 30 minute §afree origin trial§r has begun, use §a/trialorigin§r to use it",
+
+  "item.daisy_powers.shard_of_origin": "Shard Of Origin",
+
   "power.daisy_powers.more_crop_drops.name": "Bountiful Harvest",
   "power.daisy_powers.more_crop_drops.description": "When harvesting crops, there is a chance that you receive twice the yield.",
 

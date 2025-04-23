@@ -74,6 +74,8 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${BuildConfig.fabricVersion}")
 
+	modImplementation("maven.modrinth:macu-lib:${BuildConfig.macuLibVersion}-${BuildConfig.minecraftVersion}-fabric")
+
 	modImplementation("maven.modrinth:origins:${BuildConfig.originsVersion}")
 	modApi("com.github.apace100:apoli:${BuildConfig.apoliVersion}")
 	modApi("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${BuildConfig.ccaVersion}") {
@@ -97,7 +99,9 @@ tasks.processResources {
 			"license" to BuildConfig.license,
 			"loaderVersion" to BuildConfig.loaderVersion,
 			"minecraftVersion" to BuildConfig.minecraftVersion,
-			"minecraftVersionRange" to BuildConfig.minecraftVersionRange
+			"minecraftVersionRange" to BuildConfig.minecraftVersionRange,
+			"macuLibVersion" to BuildConfig.macuLibVersion,
+			"originsVersion" to BuildConfig.originsVersion
 		)
 	}
 }

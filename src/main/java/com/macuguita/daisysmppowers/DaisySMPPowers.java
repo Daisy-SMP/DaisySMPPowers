@@ -22,12 +22,27 @@
 
 package com.macuguita.daisysmppowers;
 
+import com.macuguita.daisysmppowers.component.DaisyComponents;
 import com.macuguita.daisysmppowers.conditions.DaisyEntityConditionFactories;
+import com.macuguita.daisysmppowers.trial.ChangeTrialOriginCommand;
+import com.macuguita.lib.platform.registry.GuitaRegistries;
+import com.macuguita.lib.platform.registry.GuitaRegistry;
+import com.macuguita.lib.platform.registry.GuitaRegistryEntry;
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.PowerTypeReference;
+import io.github.apace100.origins.Origins;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
+import net.minecraft.world.GameRules;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,6 +50,13 @@ public class DaisySMPPowers implements ModInitializer {
 
 	public static final String MOD_ID = "daisy_powers";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+	public static final GuitaRegistry<Item> ITEMS = GuitaRegistries.create(Registries.ITEM, MOD_ID);
+
+	public static final GuitaRegistryEntry<Item> SHARD_OF_ORIGIN = ITEMS.register("shard_of_origin", () -> new Item(new Item.Settings().rarity(Rarity.UNCOMMON)));
+
+	public static final GameRules.Key<GameRules.IntRule> TRIAL_TIME =
+			GameRuleRegistry.register("setTrialTime", GameRules.Category.MISC, GameRuleFactory.createIntRule(30 * 60 * 1000)); // default 30 minutes in milliseconds
 
 	public static final PowerType<Power> MORE_CROP_DROPS = new PowerTypeReference<>(id("more_crop_drops"));
 	public static final PowerType<Power> LONGER_POTIONS = new PowerTypeReference<>(id("longer_potions"));
@@ -45,7 +67,16 @@ public class DaisySMPPowers implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ITEMS.init();
 		DaisyEntityConditionFactories.init();
+		ChangeTrialOriginCommand.init();
+
+		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+			ServerPlayerEntity player = handler.getPlayer();
+			if (!DaisyComponents.ORIGIN_TRIAL.get(player).hasUsedTrial()) {
+				player.sendMessage(Text.translatable("message.daisy_powers.trial_begin"));
+			}
+		});
 	}
 
 	public static Identifier id(String name) {

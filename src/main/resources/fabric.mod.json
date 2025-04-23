@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
 			"com.macuguita.daisysmppowers.DaisySMPPowers"
+		],
+		"cardinal-components-entity": [
+			"com.macuguita.daisysmppowers.component.DaisyComponents"
 		]
 	},
 	"mixins": [
@@ -26,6 +29,13 @@
 		"fabricloader": ">=${loaderVersion}",
 		"minecraft": "${minecraftVersionRange}",
 		"java": ">=17",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"macu_lib": "${macuLibVersion}-${minecraftVersion}-fabric",
+		"origins": "${originsVersion}"
+	},
+	"custom": {
+		"cardinal-components": [
+			"${modId}:origin_trial"
+		]
 	}
 }

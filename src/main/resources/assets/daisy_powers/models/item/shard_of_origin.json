@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "daisy_powers:item/shard_of_origin"
+  }
+}
