@@ -55,7 +55,7 @@ public class DaisySMPPowers implements ModInitializer {
 	public static final GuitaRegistryEntry<Item> SHARD_OF_ORIGIN = ITEMS.register("shard_of_origin", () -> new Item(new Item.Settings().rarity(Rarity.UNCOMMON)));
 
 	public static final GameRules.Key<GameRules.IntRule> TRIAL_TIME =
-			GameRuleRegistry.register("setTrialTime", GameRules.Category.MISC, GameRuleFactory.createIntRule(30 * 60 * 1000)); // default 30 minutes in milliseconds
+			GameRuleRegistry.register("trialTime", GameRules.Category.MISC, GameRuleFactory.createIntRule(30 * 60 * 1000)); // default 30 minutes in milliseconds
 
 	public static final PowerType<Power> MORE_CROP_DROPS = new PowerTypeReference<>(id("more_crop_drops"));
 	public static final PowerType<Power> LONGER_POTIONS = new PowerTypeReference<>(id("longer_potions"));
